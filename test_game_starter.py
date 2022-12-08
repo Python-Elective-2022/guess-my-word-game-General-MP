@@ -1,4 +1,4 @@
-import game_starter
+import MP_1101_Word_game_starter as game_starter
 
 
 def test_is_word_guessed():
