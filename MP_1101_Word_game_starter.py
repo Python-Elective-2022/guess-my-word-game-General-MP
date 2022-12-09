@@ -39,6 +39,14 @@ def is_word_guessed(secret_word, letters_guessed):
     returns: boolean, True if all the letters of secret_word are in letters_guessed;
       False otherwise
     '''
+    '''
+    for every letter in secret_word
+      if letter not in letter_guessed
+        add letter in lowercase to letter_missing
+      else
+        pass
+    return whether the list of word missing is empty
+    '''
     letter_missing = [letter.lower() for letter in secret_word if letter not in letters_guessed]
     return len(letter_missing) == 0
 
@@ -50,6 +58,14 @@ def get_guessed_word(secret_word, letters_guessed):
     returns: string, comprised of letters and underscores that represents
       what letters in secret_word have been guessed so far.
     '''
+    '''
+    for every letter in secret_word
+      if letter in letter_guessed
+        add letter to display
+      else
+        add "_" to display
+    return display joined into string
+    '''
     display = [letter.lower() if letter in letters_guessed else "_ " for letter in secret_word]
     return "".join(display)
     
@@ -59,6 +75,13 @@ def get_available_letters(letters_guessed):
     letters_guessed: list, what letters have been guessed so far
     returns: string, comprised of letters that represents what letters have not
       yet been guessed.
+    '''
+    '''
+    for every letter in list of a - z
+      if letter not in letter_guessed
+        add letter to not_guessed
+      else
+        pass
     '''
     not_guessed = [letter for letter in string.ascii_lowercase if letter not in letters_guessed]
     return "".join(not_guessed)
@@ -83,6 +106,33 @@ def game_loop(secret_word):
       user has not yet guessed.
 
     Follows the other limitations detailed in the problem write-up.
+    '''
+    '''
+    output "Let the game begin!"
+    set number of letter to word's length
+    output "I am thinking of a word with {number of letter} letters."
+    set maximum guess number to 8
+    create empty list 
+
+    while number of time guess not exceed 8 and word had not been guess
+      get letter that had not been guessed
+      output "You have {number of guess} guesses remaining."
+      output "Letters available to you: {letter that had not been guessed}"
+      prompt for a letter and convert to lowercase
+      if letter is in secret_word
+        add letter to guess list
+        reduce number of guess by 1
+        if letter guessed is correct
+          output "Correct: " + _ _ _ _ _ with position of letter guessed replaced with letter
+        else
+          output "Correct: " + _ _ _ _ _
+      else letter already been guessed
+        output "You fool! You tried this letter already: _ _ _ _ _"
+      if word guessed
+        output "You WIN"
+      else number of guess ran out
+        output "GAME OVER !The word was {secret_word}."
+
     '''
     print("Let the game begin!")
     letters_number = len(secret_word)
